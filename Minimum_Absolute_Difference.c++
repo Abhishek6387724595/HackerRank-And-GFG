@@ -50,8 +50,7 @@ int main() {
     {
         if(a[i+1]-a[i] < mx)
             {
-                mx = a[i+1]-a[i];
-            }
+                mx = a[i+1]-a[i];}
     }cout << mx << endl;
     return 0;
 }
