@@ -1,0 +1,82 @@
+#include<iostream>
+#include<stack>
+#include<cstring>
+
+using namespace std;
+void check(char c[],int n)
+{
+int i;
+
+//int flag = 0;
+
+stack<char> s;
+
+for(i=0;i<n;i++)
+ { 
+    if(c[i]=='('|| c[i]=='{' || c[i]=='[')
+        {
+            s.push(c[i]);
+        }
+    
+ 
+    else if(c[i]==')' && s.top()=='(')
+        {
+            s.pop();
+        }   
+
+    else if(c[i]=='}' && s.top()=='{')
+        {
+            s.pop();
+        }
+
+    else if(c[i]==']' && s.top()=='[')
+        {
+            s.pop();
+        }
+
+    else if(c[i]==']' && s.top()=='(' || s.top()=='{')
+        {
+            
+            break;
+            
+        }
+    
+    else if(c[i]==')' && s.top()=='[' || s.top()=='{')
+        {
+            
+            break;
+            
+        }
+
+    else if(c[i]=='}' && s.top()=='(' || s.top()=='[')
+        {
+            
+            break;
+            
+        }
+ }
+
+    if(s.empty()==true )
+        {
+            cout<<"YES"<<endl;
+        }
+    else
+        {
+            cout<<"NO"<<endl;
+        }
+}
+
+int main()
+{
+int i;
+int x;
+cin>>x;
+    while(x--)
+    {
+        char str[1000];
+        cin>>str;
+        int n = strlen(str);
+        check(str,n);
+    }
+
+}
