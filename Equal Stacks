@@ -1,0 +1,83 @@
+#include <stack>
+#include <algorithm>
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    stack<int> s1,s2,s3,ns1,ns2,ns3;
+    int i,sum1,sum2,sum3;
+    sum1=sum2=sum3=0;
+    int a,b,c;
+    cin>>a>>b>>c;
+
+    for(i=0;i<a;i++)
+    {   
+        int x;
+        cin>>x;
+        s1.push(x);
+
+        sum1=sum1+x;
+    }
+    while(!s1.empty())
+    {
+        ns1.push(s1.top());
+        s1.pop();
+    }
+
+    for(i=0;i<b;i++)
+    {   
+        int x;
+        cin>>x;
+        s2.push(x);
+
+        sum2=sum2+x;
+    }
+    while(!s2.empty())
+    {
+        ns2.push(s2.top());
+        s2.pop();
+    }
+
+    for(i=0;i<c;i++)
+    {   
+        int x;
+        cin>>x;
+        s3.push(x);
+
+        sum3=sum3+x;
+    }
+    while(!s3.empty())
+    {
+        ns3.push(s3.top());
+        s3.pop();
+    }
+
+    while(sum1!=sum2 || sum2!=sum3)
+    {
+        // if(sum1==sum2 && sum2==sum3)
+        // {
+        //     cout<<sum1;
+        // }
+        if(sum1>=sum2 && sum1>=sum3)
+        {
+            sum1-=ns1.top();
+            ns1.pop();
+        }
+        else if(sum2>=sum1 && sum2>=sum3)
+        {
+            sum2-=ns2.top();
+            ns2.pop();
+        }
+        else
+        {
+            sum3-=ns3.top();
+            ns3.pop();
+        }
+
+    }   
+    cout<<sum1;
+    
+}
