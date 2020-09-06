@@ -1,0 +1,59 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <stack>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    stack<int> s1,s2;
+
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        int instruction;
+        cin>>instruction;
+        if(instruction==1)
+        {
+            int x;
+            cin>>x;
+            //s1.push(x);
+            if(s1.empty()==true)
+            {
+                s1.push(x);
+                s2.push(x);
+            }
+            else
+            {
+                if(x>s2.top())
+                {
+                    s2.push(x);
+                }
+                else
+                {
+                    s2.push(s2.top());
+                }
+                s1.push(x);
+            }
+        }
+        else if(instruction==2)
+        {
+            
+            
+                s1.pop();
+                s2.pop();
+            
+            
+
+        }
+        else if(instruction==3)
+        {
+            cout<<s2.top()<<endl;
+        }
+    }
+    return 0;
+}
