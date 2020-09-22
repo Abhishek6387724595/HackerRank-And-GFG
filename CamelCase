@@ -10,6 +10,7 @@ int main()
 
     int l = s.length();
     int count=1;
+    
     for(int i=0;i<l;i++)
     {
         if(isupper(s[i]))
