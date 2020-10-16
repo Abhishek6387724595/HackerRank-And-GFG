@@ -1,0 +1,13 @@
+SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* llist, int data) {
+    SinglyLinkedListNode* tmp=(SinglyLinkedListNode*)malloc(sizeof(struct SinglyLinkedListNode));
+    tmp->data=data;
+    tmp->next=NULL;
+    if(llist==NULL){
+        llist=tmp;
+    }else{
+        SinglyLinkedListNode* p=llist;
+        while(p->next!=NULL)p=p->next;
+        p->next=tmp;
+    }
+    return llist;
+}
