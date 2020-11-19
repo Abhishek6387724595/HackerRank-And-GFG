@@ -17,6 +17,7 @@ for(i=0;i<n;i++)
         {
             s.push(c[i]);
         }
+        
     
  
     else if(c[i]==')' && s.top()=='(')
