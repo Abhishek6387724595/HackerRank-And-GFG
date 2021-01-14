@@ -14,7 +14,6 @@ int main() {
     int a[n];
     for(i=0; i<n; i++){
         cin>>a[i];   
-        
     }
     
     sum = 0;
