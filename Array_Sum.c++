@@ -11,6 +11,7 @@ int main() {
     
     int i,n,sum;
    
+   
     cin>>n;
    
    
