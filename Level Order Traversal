@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>	
+
+using namespace std;
+
+class Node {
+    public:
+        int data;
+        Node *left;
+        Node *right;
+        Node(int d) {
+            data = d;
+            left = NULL;
+            right = NULL;
+        }
+};
+
+class Solution {
+    public:
+  		Node* insert(Node* root, int data) {
+            if(root == NULL) {
+                return new Node(data);
+            } else {
+                Node* cur;
+                if(data <= root->data) {
+                    cur = insert(root->left, data);
+                    root->left = cur;
+                } else {
+                    cur = insert(root->right, data);
+                    root->right = cur;
+               }
+
+               return root;
+           }
+        }
+/*
+class Node {
+    public:
+        int data;
+        Node *left;
+        Node *right;
+        Node(int d) {
+            data = d;
+            left = NULL;
+            right = NULL;
+        }
+};
+        cout<<root->data<<" ";
+        levelOrder(root->left);
+        if(root->right==NULL){return;}
+        levelOrder(root->right);
+*/
+
+    void levelOrder(Node * root) {
+        vector<int> v1;
+        queue<Node *> q1;
+        if(root==NULL){
+            return;
+        }
+        q1.push(root);
+        while(q1.empty()==false){
+            Node * t = q1.front();
+            //v1.push_back(t->data);
+            cout<<t->data<<" ";
+            if(t->left){
+                q1.push(t->left);
+            }
+            if(t->right){
+                q1.push(t->right);
+            }
+            q1.pop();
+        }
+    }
+
+}; //End of Solution
