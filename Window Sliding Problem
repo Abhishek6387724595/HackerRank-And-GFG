@@ -1,0 +1,37 @@
+#include <bits/stdc++.h> 
+#include<vector>
+using namespace std; 
+void maxSlidingWindow(vector<int>& nums, int k){
+    int tmp = INT_MIN;
+        int sum = INT_MIN;
+        vector<int> v1;
+        int i,j;
+        i=j=0;
+        while(j<nums.size()){
+            //sum = INT_MIN;
+            if(j-i+1<k){
+                j++;
+            }
+            else if(j-i+1==k){
+                for(int k=i;k<=j;k++){
+                    sum = max(sum,nums[k]);
+                }
+                tmp = max(tmp,sum);
+                v1.push_back(tmp);
+                i++;
+                j++;
+                sum = INT_MIN;
+                tmp = INT_MIN;
+            }
+        }
+        for(int i=0;i<v1.size();i++){
+            cout<<v1[i]<<" ";
+        }
+}
+
+int main(){
+    vector<int>nums{7,2,4};
+    int k = 2;
+    //k is the size of window
+    maxSlidingWindow(nums,k);
+}
