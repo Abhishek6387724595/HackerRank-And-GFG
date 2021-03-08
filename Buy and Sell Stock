@@ -1,0 +1,17 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+int main(){
+    int arr[]={1,5,3,1,8,12};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int resmini = INT_MAX;
+    int tmp = INT_MIN;
+    for(int i=0;i<n-1;i++){
+        resmini = min(resmini,arr[i]);
+        if(arr[i]<arr[i+1]){
+            tmp=max(tmp,arr[i+1]);
+        }
+     }
+    int result= tmp-resmini;
+    cout<<result;
+}
