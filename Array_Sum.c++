@@ -22,8 +22,7 @@ int main() {
         sum = sum + a[i];
        
     }
-   
-    
+  
     cout<<sum;
     return 0;
 }
