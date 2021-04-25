@@ -1,0 +1,34 @@
+/* A binary tree node
+
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+    
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+ */
+vector<int> leftView(Node *root)
+{
+   vector<int>ans;
+   queue<Node *>q1;
+   if(!root){
+       return ans;
+   }
+   q1.push(root);
+   while(q1.empty()==false){
+       int count=q1.size();
+       for(int i=0;i<count;i++){
+           Node * curr=q1.front();
+           q1.pop();
+           if(i==0){ ans.push_back(curr->data); }
+           if(curr->left!=NULL){ q1.push(curr->left); }
+           if(curr->right!=NULL){ q1.push(curr->right); }
+       }
+   }
+   return ans;
+}
