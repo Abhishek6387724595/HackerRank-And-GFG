@@ -21,7 +21,6 @@ int main() {
     for(i=0; i<n; i++){
         sum = sum + a[i];
     }
-  
     cout<<sum;
     return 0;
 }
