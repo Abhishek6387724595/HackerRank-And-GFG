@@ -10,6 +10,7 @@ using namespace std;
 int main() {
     
     int i,n,sum;
+    
    
     cin>>n;
     int a[n];
